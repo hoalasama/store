@@ -1,0 +1,87 @@
+{% load static %}
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="/docs/5.3/assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.118.2">
+    <title>Store</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/navbar-static/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/main.css' %}" rel="stylesheet">
+
+    <!-- Favicons -->
+    <!-- Custom styles for this template -->
+
+    <link href="{% static 'css/navbar-static.css' %}" rel="stylesheet">
+  </head>
+    <body>    
+    {% include 'nav/nav.html' %}
+
+    <main class="container">
+        <div class="item-container">
+            <div class="stuff">
+                <img src="{{ stuff_item.profile_pic.url }}" alt="{{ stuff_item.name }}" width="300px" height="300px">
+                <h2 style="color: white;">{{ stuff_item.name }}</h2>
+            </div>
+        </div>
+    </main>
+    {% if user.is_authenticated %}
+    <div class="center d-flex justify-content-center align-items-center">
+        <a href="{% url 'stuff_edit' stuff_item.id %}" class="btn btn-primary btn-sm center" style="margin-right: 10px;">Sửa</a>
+        <a href="{% url 'delete' stuff_item.id %}" class="btn btn-danger btn-sm center" style="margin-left: 10px;">Xóa</a>
+    </div>
+    {% endif %}
+    </body>
+    <style>
+        .center {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+            }
+        .item-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        }
+
+        .stuff {
+        width: 100%;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        text-align: center;
+        background-color: #2b3035;
+        border-radius: 20px;
+        }
+
+        .stuff img {
+        object-fit: cover;
+        padding: 20px;
+        border-radius: 30px;
+        }
+
+        .stuff h2 a {
+        color: #63c5da;
+        font-size: 20px;
+        text-decoration: none;
+        }
+
+        .stuff h2 {
+        margin-bottom: 5px;
+        color: #ccc;
+        padding-bottom: 10px;
+        }
+
+        @media (max-width: 767px) {
+        .stuff {
+            width: 100%;
+        }
+        }
+    </style>
+</html

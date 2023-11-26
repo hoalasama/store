@@ -1,0 +1,55 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="/docs/5.3/assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.118.2">
+    <title>Store</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/navbar-static/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/main.css' %}" rel="stylesheet">
+
+    <!-- Favicons -->
+    <!-- Custom styles for this template -->
+
+    <link href="{% static 'css/navbar-static.css' %}" rel="stylesheet">
+</head>
+
+
+{% block content %}
+  <h2>Add Stuff</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="{{ form.name.id_for_label }}">Tên:</label>
+      {{ form.name }}
+    </div>
+    <div class="form-group">
+      <label for="{{ form.category.id_for_label }}">Phân loại:</label>
+      {{ form.category }}
+    </div>
+    <div class="form-group">
+      <label for="{{ form.profile_pic.id_for_label }}">Hình:</label>
+      {{ form.profile_pic }}
+    </div>
+    <button type="submit">Xác nhận</button>
+  </form>
+  <a href="{% url 'stuff_detail' pk=stuff_item.pk %}">Cancel</a>
+{% endblock %}
+<style>
+  .form-group {
+    margin-bottom: 20px;
+  }
+  label{
+    color: white;
+  }
+</style>
+
+</html

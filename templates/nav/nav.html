@@ -1,0 +1,62 @@
+{% load static %}
+<link href="{% static 'css/main.css' %}" rel="stylesheet">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'homepage' %}">Trang chủ</a>
+      <button class="navbar-toggler" type="button" onclick="togglePopup()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <form class="nav-link d-flex align-items-center gap-2" action="{% url 'logout' %}" method="POST">
+              {% csrf_token %}
+              <input type="submit" value="Sign out">
+            </form>
+          </li>
+          
+          {% else %}
+          <div class="nav-item1">
+            <a href="{% url 'login' %}">Admin Login</a>
+          </div>
+          {% endif %}
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          </li> -->
+        </ul>
+        {% if user.is_authenticated %}
+        <li class="btn btn-primary" style="margin-right: 20px;" >
+          <a href="{% url 'adding' %}" style="color: white;">Add</a>
+        </li>
+        {% endif %}
+        <div class="container1">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+          </div>
+      </div>
+    </div>
+  </nav>
+  <div class="popup-container" id="categoryPopup">
+    <div class="category-item">Category 1</div>
+    <div class="category-item">Category 2</div>
+    <div class="category-item">Category 3</div>
+    <div class="category-item">Category 4</div>
+  </div>
+  
+    <script>
+        function togglePopup() {
+            var popup = document.getElementById('categoryPopup');
+            if (popup.style.display === 'block') {
+                popup.style.display = 'none';
+            } else {
+                popup.style.display = 'block';
+            }
+            }
+
+    document.querySelector('.container1').addEventListener('click', togglePopup);
+    </script>
