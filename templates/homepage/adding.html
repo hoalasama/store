@@ -41,6 +41,8 @@
     </div>
     <button type="submit">Thêm sản phẩm</button>
   </form>
+  <br>
+  <a class="picture" href="{% url 'homepage'  %}">Quay lại</a>
 {% endblock %}
 <style>
   .form-group {
@@ -48,6 +50,13 @@
   }
   label{
     color: white;
+  }
+  .picture{    
+        text-decoration: none;
+        color: white;
+        padding: 6px;
+        background-color: #63c5da;
+        border-radius: 5px;  
   }
 </style>
 

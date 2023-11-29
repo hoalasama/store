@@ -41,13 +41,34 @@
       </div>
     </div>
   </nav>
-  <div class="popup-container" id="categoryPopup">
+  <!-- <div class="popup-container" id="categoryPopup">
     <div class="category-item">Category 1</div>
     <div class="category-item">Category 2</div>
     <div class="category-item">Category 3</div>
     <div class="category-item">Category 4</div>
+  </div> -->
+  <div class="popup-container" id="categoryPopup">
+    <div class="category-item"><a class="category" href="{% url 'homepage' %}">Trang chủ</a></div>
+    {% for item in categories %}
+    <div class="category-item"><a class="category" href="{% url 'get_category_items' category=item %}">{{ item }}</a></div>
+    {% endfor %}
   </div>
-  
+  <style>
+    .category{
+        text-decoration: none;
+        color: white;
+        padding: 6px;
+        background-color: #63c5da;
+        border-radius: 5px;
+        padding: 10px;
+    }
+    .category-item{
+      margin: 20px;
+    }
+    .popup-container{
+      border-radius: 5px;
+    }
+  </style>
     <script>
         function togglePopup() {
             var popup = document.getElementById('categoryPopup');

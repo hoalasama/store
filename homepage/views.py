@@ -8,11 +8,19 @@ from django.contrib import auth
 from django.views import View
 from .forms import StuffForm
 from django.shortcuts import render, get_object_or_404  
+from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
-    stuff = Stuff.objects.all()
-    return render(request, 'homepage/index.html', {'stuff': stuff})
+    stuff = Stuff.objects.all().order_by('name')
+    categories = Stuff.objects.values_list('category', flat=True).distinct()
+
+    return render(request, 'homepage/index.html', {'stuff': stuff, 'categories': categories})
+
+def get_category_items(request, category):
+    items = Stuff.objects.filter(category=category)
+    categories = Stuff.objects.values_list('category', flat=True).distinct()
+    return render(request, 'homepage/category_items.html', {'items': items, 'selected_category': category, 'categories': categories})
 
 def custom_login(request):
     if request.method == 'POST':
