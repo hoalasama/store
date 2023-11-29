@@ -36,6 +36,10 @@
         <a href="{% url 'stuff_edit' stuff_item.id %}" class="btn btn-primary btn-sm center" style="margin-right: 10px;">Sửa</a>
         <a href="{% url 'delete' stuff_item.id %}" class="btn btn-danger btn-sm center" style="margin-left: 10px;">Xóa</a>
     </div>
+    {% else %}
+    <div class="center d-flex justify-content-center align-items-center">
+        <a href="{% url 'homepage' %}" class="btn btn-primary btn-sm center" >Quay lại</a>
+    </div>
     {% endif %}
     </body>
     <style>

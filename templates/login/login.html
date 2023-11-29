@@ -19,7 +19,7 @@
             <div><label for="psw"></label></div>
 
             <button type="submit">Đăng nhập</button>
-            <a href="{% url 'homepage' %}">Quay lại</a>
+            <a id="back" href="{% url 'homepage' %}">Quay lại</a>
         </div>
     </form>
     </div>
@@ -27,8 +27,9 @@
     a{
         text-decoration: none;
         color: white;
-        padding: 5px;
+        padding: 6px;
         background-color: #63c5da;
+        border-radius: 5px;
     }
     .loginform {
     justify-content: center;
@@ -57,6 +58,7 @@ margin: 8px 0;
 border: none;
 cursor: pointer;
 width: 100%;
+border-radius: 5px;
 }
 
 button:hover {

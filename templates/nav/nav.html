@@ -12,7 +12,7 @@
           <li class="nav-item">
             <form class="nav-link d-flex align-items-center gap-2" action="{% url 'logout' %}" method="POST">
               {% csrf_token %}
-              <input type="submit" value="Sign out">
+              <input type="submit" value="Đăng xuất">
             </form>
           </li>
           
@@ -30,7 +30,7 @@
         </ul>
         {% if user.is_authenticated %}
         <li class="btn btn-primary" style="margin-right: 20px;" >
-          <a href="{% url 'adding' %}" style="color: white;">Add</a>
+          <a href="{% url 'adding' %}" style="color: white;">Thêm sản phẩm</a>
         </li>
         {% endif %}
         <div class="container1">

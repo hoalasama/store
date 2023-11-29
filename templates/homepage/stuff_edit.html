@@ -41,7 +41,8 @@
     </div>
     <button type="submit">Xác nhận</button>
   </form>
-  <a href="{% url 'stuff_detail' pk=stuff_item.pk %}">Cancel</a>
+  <br>
+  <a class="picture" href="{% url 'stuff_detail' pk=stuff_item.pk %}">Quay lại</a>
 {% endblock %}
 <style>
   .form-group {
@@ -50,6 +51,13 @@
   label{
     color: white;
   }
+  .picture{    
+        text-decoration: none;
+        color: white;
+        padding: 6px;
+        background-color: #63c5da;
+        border-radius: 5px;  
+  }
 </style>
 
-</html
+</html>

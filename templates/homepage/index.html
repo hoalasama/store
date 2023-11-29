@@ -28,7 +28,9 @@
 
         {% for item in stuff %}
         <div class="stuffs">
+          <a href="{% url 'stuff_detail' pk=item.pk %}">
             <img src="{{ item.profile_pic.url }}" alt="{{ item.name }}" width="150px" height="150px">
+          </a>
             <h2><a href="{% url 'stuff_detail' pk=item.pk %}">{{ item.name }}</a></h2>
         </div>
         {% endfor %}
